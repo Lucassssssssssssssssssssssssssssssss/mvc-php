@@ -27,5 +27,8 @@ while (($row = $statement->fetch())) {
     $posts[] = $post;
 }
 
-// Call the template
+require('../src/model.php');
+
+$posts = getPosts();
+
 require('../templates/homepage.php');
