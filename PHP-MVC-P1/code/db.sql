@@ -1,6 +1,10 @@
+DROP DATABASE IF EXISTS `blog`;
 -- Ce fichier sert à initialiser la base de données
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+CREATE DATABASE IF NOT EXISTS `blog` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `blog`;
 
 CREATE TABLE `billets` (
   `id` int(11) NOT NULL,
