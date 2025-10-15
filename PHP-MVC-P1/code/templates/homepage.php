@@ -3,32 +3,26 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Le blog de l'AVBN</title>
+    <title>The AVBN Blog</title>
     <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
-    <h1>Le super blog de l'AVBN !</h1>
-    <p>Derniers billets du blog :</p>
-    <?php
-    foreach ($posts as $post) {
-    ?>
+    <h1>The amazing AVBN blog!</h1>
+    <p>Latest blog posts:</p>
+    <?php foreach ($posts as $post): ?>
         <div class="news">
             <h3>
-                <?php echo htmlspecialchars($post['title']); ?>
-                <em>le <?php echo $post['french_creation_date']; ?> </em>
+                <?= htmlspecialchars($post['title']) ?>
+                <em>on <?= $post['french_creation_date'] ?> </em>
             </h3>
             <p>
-                <?php
-                echo nl2br(htmlspecialchars($post['content']));
-                ?>
+                <?= nl2br(htmlspecialchars($post['content'])) ?>
                 <br />
-                <em><a href="#">Commentaires</a></em>
+                <em><a href="#">Comments</a></em>
             </p>
         </div>
-    <?php
-    } // The end of the posts loop.
-    ?>
+    <?php endforeach; ?>
 </body>
 
 </html>
