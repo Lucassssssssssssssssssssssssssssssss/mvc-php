@@ -13,7 +13,7 @@
         <div class="news">
             <h3>
                 <?= htmlspecialchars($post['title']) ?>
-                <em>le <?= $post['french_creation_date'] ?> </em>
+                <em>le <?= $post['french_creation_date'] ?></em>
             </h3>
 
             <p>
@@ -26,9 +26,8 @@
         <?php
         foreach ($comments as $comment) {
         ?>
-        <p><strong><?= htmlspecialchars($comment['author']) ?> </strong>
-            le <?= $comment['french_creation_date'] ?> </p>
-        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?> </p>
+            <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['french_creation_date'] ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
         <?php
         }
         ?>
