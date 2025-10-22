@@ -2,12 +2,12 @@
 
 class Comment
 {
-    public string $author;
-    public string $frenchCreationDate;
-    public string $comment;
+    public $author;
+    public $frenchCreationDate;
+    public $comment;
 }
 
-function getComments(string $post)
+function getComments(string $post): array
 {
     $database = commentDbConnect();
     $statement = $database->prepare(
@@ -41,7 +41,7 @@ function createComment(string $post, string $author, string $comment)
 
 function commentDbConnect()
 {
-    $database = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'blog', 'password');
+    $database = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
 
     return $database;
 }
