@@ -1,5 +1,9 @@
 <?php
 
+namespace Application\Model\Comment;
+
+require_once('src/lib/database.php');
+
 class Comment
 {
     public $author;
@@ -9,7 +13,7 @@ class Comment
 
 class CommentRepository
 {
-    public DatabaseConnection $connection;
+    public \DatabaseConnection $connection;
 
     function getComments(string $post): array
     {
