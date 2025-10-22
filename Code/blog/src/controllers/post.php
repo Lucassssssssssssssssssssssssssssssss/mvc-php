@@ -21,3 +21,31 @@ function post(string $identifier)
 
     require('templates/post.php');
 }
+
+function editComment(string $id, string $postId)
+{
+    $connection = new DatabaseConnection();
+
+    $commentRepository = new CommentRepository();
+    $commentRepository->connection = $connection;
+    $comment = $commentRepository->getComment($id);
+
+    require('templates/editComment.php');
+}
+
+function updateComment(string $id, string $postId, array $input)
+{
+    $connection = new DatabaseConnection();
+
+    $commentRepository = new CommentRepository();
+    $commentRepository->connection = $connection;
+
+    $success = $commentRepository->updateComment($id, $input['author'], $input['comment']);
+
+    if ($success) {
+        header('Location: index.php?action=post&id=' . $postId);
+    } else {
+        throw new Exception('Impossible de mettre à jour le commentaire.');
+    }
+}
+    
